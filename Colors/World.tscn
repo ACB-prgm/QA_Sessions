@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://QA_Session_1/QA_Session_01/Colors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://QA_Session_1/QA_Session_01/SpawnArea/SpawnArea.tscn" type="PackedScene" id=2]
+[ext_resource path="res://QA_Session_1/QA_Session_01/Colors/World.gd" type="Script" id=3]
 
-[node name="Node2D" type="Node2D"]
+[node name="World" type="Node2D"]
 position = Vector2( 274.407, 445.309 )
+script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 3059.39, 1138.55 )
 
 [node name="SpawnArea" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1657.8, -648.175 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

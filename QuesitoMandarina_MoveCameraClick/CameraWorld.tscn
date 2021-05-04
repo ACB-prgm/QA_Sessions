@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://QA_Session_1/QA_Session_01/QuesitoMandarina_MoveCameraClick/ClickToMoveCamera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://QA_Session_1/QA_Session_01/QuesitoMandarina_MoveCameraClick/AreaToMoveTo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://QA_Session_1/QA_Session_01/QuesitoMandarina_MoveCameraClick/CameraWorld.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.176471, 0.247059, 0.819608, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.223529, 0.819608, 0.176471, 1 )
+
+[node name="CameraWorld" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1526.09, 929.131 )
+
+[node name="MoveTOArea" parent="." instance=ExtResource( 2 )]
+margin_left = 479.008
+margin_top = 543.999
+margin_right = 679.008
+margin_bottom = 743.999
+
+[node name="MoveTOArea2" parent="." instance=ExtResource( 2 )]
+margin_left = 2108.6
+margin_top = 1131.33
+margin_right = 2308.6
+margin_bottom = 1331.33
+custom_styles/normal = SubResource( 1 )
+
+[node name="MoveTOArea3" parent="." instance=ExtResource( 2 )]
+margin_left = 2823.5
+margin_top = 276.814
+margin_right = 3023.5
+margin_bottom = 476.814
+custom_styles/normal = SubResource( 2 )
