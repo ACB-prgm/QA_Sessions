@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://QA_Session_1/QA_Session_01/SpawnArea/SpawnArea.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 500, 200 )
+
+[node name="SpawnArea" type="CollisionShape2D"]
+modulate = Color( 0.662745, 0, 1, 1 )
+position = Vector2( 500, 500 )
+shape = SubResource( 1 )
+disabled = true
+script = ExtResource( 1 )
