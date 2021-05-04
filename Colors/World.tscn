@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://QA_Session_1/QA_Session_01/Colors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://QA_Session_1/QA_Session_01/Colors/Enemy.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 274.407, 445.309 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3059.39, 1138.55 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 635.468, -223.858 )
+
+[node name="KinematicBody2D3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -779.893, 950.795 )
+
+[node name="KinematicBody2D4" parent="." instance=ExtResource( 2 )]
+position = Vector2( -154.053, 570.477 )
+
+[node name="KinematicBody2D5" parent="." instance=ExtResource( 2 )]
