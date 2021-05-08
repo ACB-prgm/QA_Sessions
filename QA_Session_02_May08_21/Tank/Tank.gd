@@ -12,13 +12,14 @@ onready var anims = ["hit", "shoot"]
 var input_vector = Vector2.ZERO
 var velocity = Vector2.ZERO
 
+var vector = Vector2(-0.751234, -0.6545)
 
-func _ready():
-	print(anims)
+
+func _ready() -> void:
 	randomize()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	movement()
 	aiming()
 
@@ -35,6 +36,7 @@ func movement():
 		velocity = velocity.move_toward(Vector2.ZERO, ACCELERATION)
 	
 	rotation = input_vector.angle()
+# warning-ignore:return_value_discarded
 	move_and_slide(velocity)
 
 

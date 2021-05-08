@@ -1,0 +1,25 @@
+[gd_scene format=2]
+
+[node name="BilliardTable" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.129412, 0.117647, 0.117647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 128.0
+margin_top = 112.0
+margin_right = -128.0
+margin_bottom = -112.0
+color = Color( 0.180392, 0.462745, 0.321569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
