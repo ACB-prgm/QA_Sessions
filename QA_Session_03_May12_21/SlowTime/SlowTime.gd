@@ -14,7 +14,6 @@ func _ready():
 
 #func _process(delta):
 #	Engine.time_scale = lerp(Engine.time_scale, 1.0, .05)
-#	print(Engine.time_scale)
 #	if Engine.time_scale > 0.95:
 #		Engine.time_scale = 1.0
 #		set_process(false)
