@@ -3,10 +3,9 @@ extends Node
 
 onready var timer := Timer.new()
 
-var slowing := false
 
 func _ready():
-	set_process(false)
+#	set_process(false)
 	add_child(timer)
 # warning-ignore:return_value_discarded
 	timer.connect("timeout", self, "_on_timer_timeout")
@@ -21,7 +20,6 @@ func _ready():
 #		set_process(false)
 
 func start_slow(duration = 1.0, slow_speed = 0.1):
-	slowing = true
 	timer.wait_time = duration * slow_speed
 	timer.start()
 	
