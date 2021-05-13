@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color = vec4(1.0,1.0,1.0,0);
+uniform float flash_amount = 0.0;
+
+void fragment(){
+	vec4 text = texture(TEXTURE, UV);
+	COLOR.rgb = mix(text.rgb, flash_color.rgb, flash_amount);
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/flash_color = Plane( 1, 1, 1, 0 )
+shader_param/flash_amount = 0.0

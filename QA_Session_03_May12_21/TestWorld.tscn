@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://QA_Sessions/QA_Session_03_May12_21/BasicPlayer/BasicPlayer.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64.7827, 65.6539 )
+
+[node name="TestWorld" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Target" type="StaticBody2D" parent="."]
+position = Vector2( 1835.84, 577.103 )
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Target"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )

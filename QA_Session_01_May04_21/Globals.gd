@@ -1,3 +1,4 @@
+tool
 extends Node
 
 #**************************************************************
@@ -7,3 +8,6 @@ extends Node
 
 
 var player: Node2D = null
+
+func _print(arg):
+	print(arg)
