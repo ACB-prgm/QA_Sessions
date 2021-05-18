@@ -3,18 +3,18 @@
 [ext_resource path="res://QA_Sessions/QA_Session_03_May12_21/NostalgicLeafParabola/Gun.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
-[sub_resource type="PhysicsMaterial" id=4]
+[sub_resource type="PhysicsMaterial" id=1]
 rough = true
 absorbent = true
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 56.0959, 190.224 )
 
 [sub_resource type="PhysicsMaterial" id=3]
 rough = true
 absorbent = true
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 323.106, 33.7726 )
 
 [node name="Node2D" type="Node2D"]
@@ -33,10 +33,10 @@ position = Vector2( 70.1547, 0 )
 [node name="Pin" type="RigidBody2D" parent="."]
 position = Vector2( 2912.97, 840.366 )
 mass = 5.10204
-physics_material_override = SubResource( 4 )
+physics_material_override = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pin"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Pin"]
 modulate = Color( 0.290196, 0.152941, 0.662745, 1 )
@@ -51,7 +51,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Ground"]
 scale = Vector2( 10, 1 )
