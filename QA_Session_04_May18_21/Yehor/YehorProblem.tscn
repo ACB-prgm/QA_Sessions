@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://QA_Sessions/QA_Session_04_May18_21/Yehor/YehorProblem.gd" type="Script" id=2]
+[ext_resource path="res://QA_Sessions/QA_Session_04_May18_21/Yehor/TrailLine2D.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 61.2775, 61.3014 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.189189 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.565789, 0.986842 )
+colors = PoolColorArray( 0.278431, 0.54902, 0.74902, 1, 0.278431, 0.54902, 0.74902, 1, 0.278431, 0.54902, 0.74902, 0 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -14,4 +22,14 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
+
+[node name="TrailLine2D" type="Line2D" parent="."]
+show_behind_parent = true
+width = 50.0
+width_curve = SubResource( 2 )
+gradient = SubResource( 3 )
+joint_mode = 2
+antialiased = true
+script = ExtResource( 3 )
