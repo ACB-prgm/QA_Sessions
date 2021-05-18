@@ -13,6 +13,7 @@ void fragment(){
 }"
 
 [resource]
+resource_local_to_scene = true
 shader = SubResource( 1 )
 shader_param/flash_color = Plane( 1, 1, 1, 0 )
 shader_param/flash_amount = 0.0
