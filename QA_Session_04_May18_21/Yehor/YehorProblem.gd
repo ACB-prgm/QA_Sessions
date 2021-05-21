@@ -38,9 +38,6 @@ func movement():
 		if Input.is_action_just_pressed("ui_up"):  # JUMP
 			velocity.y = -JUMP_SPEED
 			velocity.x += WALK_MAX_SPEED * input_vector.x
-	
-	if is_on_wall():
-		print(get_parent().get_node("TileMap").get_cellv(global_position))
 # warning-ignore:return_value_discarded
 	move_and_slide(velocity, Vector2.UP)
 

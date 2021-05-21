@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://QA_Sessions/QA_Session_03_May12_21/BasicPlayer/BasicPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://QA_Sessions/QA_Session_03_May12_21/PauseMenu.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://QA_Sessions/QA_Session_02_May08_21/Tank/Tank.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64.7827, 65.6539 )
@@ -61,5 +62,7 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
 
 [connection signal="pressed" from="PauseCanvasLayer/PauseMenu/Button" to="PauseCanvasLayer/PauseMenu" method="_on_Button_pressed"]

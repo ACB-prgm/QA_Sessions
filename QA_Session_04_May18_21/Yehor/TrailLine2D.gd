@@ -11,7 +11,7 @@ func _ready():
 	parent.get_parent().call_deferred("add_child", self)
 
 
-func _process(delta):
+func _process(_delta):
 	draw_trail()
 
 

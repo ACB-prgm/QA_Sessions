@@ -74,13 +74,3 @@ autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-text = "Hello"
-__meta__ = {
-"_edit_use_anchors_": false
-}
