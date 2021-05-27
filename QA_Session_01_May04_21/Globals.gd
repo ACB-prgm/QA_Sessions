@@ -6,6 +6,7 @@ extends Node
 # GO TO PROJECT > PROJECT SETTINGS > AUTOLOAD > CLICK THE LIL FILE ICON
 # THEN SELECT THIS SCRIPT AND CLICK ADD
 
+var mouse_pos: Vector2
 
 var player: Node2D = null
 
