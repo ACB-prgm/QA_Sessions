@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 const MAX_VEL = 1000
 const ACCELERATION = 100
-const MAX_POINTS = 5
+const MAX_POINTS = 40
 
 var input_vector = Vector2.ZERO
 var velocity = Vector2.ZERO
@@ -31,7 +31,16 @@ func movement():
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, ACCELERATION)
 
+# warning-ignore:return_value_discarded
 	move_and_slide(velocity)
 
 func create_points():
-	pass
+#	frame += 1
+#
+#	if frame == 5:
+#		frame = 0
+		
+	points.append(global_position)
+	
+	if points.size() > MAX_POINTS:
+		points.pop_front()
