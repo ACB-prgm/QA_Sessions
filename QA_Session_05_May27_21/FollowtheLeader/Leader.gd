@@ -8,7 +8,6 @@ const MAX_POINTS = 40
 var input_vector = Vector2.ZERO
 var velocity = Vector2.ZERO
 var points := []
-var frame := 0
 
 
 func _ready():
@@ -34,12 +33,7 @@ func movement():
 # warning-ignore:return_value_discarded
 	move_and_slide(velocity)
 
-func create_points():
-#	frame += 1
-#
-#	if frame == 5:
-#		frame = 0
-		
+func create_points():	
 	points.append(global_position)
 	
 	if points.size() > MAX_POINTS:

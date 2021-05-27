@@ -17,5 +17,5 @@ func _physics_process(delta):
 
 func follow():
 	if leader.points and leader.points.size() == leader.MAX_POINTS:
-		if leader.points.size() > 10:
+		if global_position.distance_to(leader.global_position) > 200:
 			global_position = leader.points.pop_front()
