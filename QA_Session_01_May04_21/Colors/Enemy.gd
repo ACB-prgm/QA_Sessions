@@ -14,6 +14,8 @@ var input_vector = Vector2.ZERO
 var velocity = Vector2.ZERO
 var dead = false
 
+signal enemy_died
+
 
 func _ready():
 	randomize()
@@ -60,4 +62,5 @@ func _on_Area2D_body_entered(body):
 func die():
 	if !dead:
 		dead = true
+		emit_signal("enemy_died")
 		queue_free()

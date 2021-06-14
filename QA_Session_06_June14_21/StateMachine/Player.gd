@@ -14,6 +14,10 @@ enum {
 var state = MOVE
 
 
+func _ready():
+	Globals.player = self
+
+
 func _physics_process(_delta):
 	match state:
 		IDLE:

@@ -8,7 +8,7 @@ extends Node
 
 var mouse_pos: Vector2
 
-var player: Node2D = null
+var player = null
 
 func _print(arg):
 	print(arg)
