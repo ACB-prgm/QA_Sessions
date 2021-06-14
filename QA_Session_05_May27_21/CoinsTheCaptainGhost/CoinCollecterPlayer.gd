@@ -5,7 +5,7 @@ const ACCELERATION = 100
 
 var input_vector = Vector2.ZERO
 var velocity = Vector2.ZERO
-
+var money = 0
 
 func _ready():
 	Globals.player = self

@@ -21,7 +21,7 @@ func _physics_process(_delta):
 		MOVE:
 			movement()
 	
-	print(state)
+#	print(state)
 
 
 func movement():
