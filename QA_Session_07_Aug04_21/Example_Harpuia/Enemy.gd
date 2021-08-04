@@ -37,7 +37,7 @@ func _physics_process(_delta):
 
 
 func movement():
-	if Globals.player and is_instance_valid(Globals.player):
+	if Globals.player:
 		input_vector = global_position.direction_to(Globals.player.global_position)
 	else:
 		input_vector = Vector2.ZERO

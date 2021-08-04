@@ -3,7 +3,7 @@ extends Node2D
 
 onready var spawnArea = $SpawnArea
 
-var enemy_TSCN = preload("res://QA_Sessions/QA_Session_07_Aug04_21/Example_Harpuia/Enemy.tscn")
+var enemy_TSCN = preload("res://QA_Session_1/QA_Session_01/Colors/Enemy.tscn")
 
 
 func _on_Timer_timeout():

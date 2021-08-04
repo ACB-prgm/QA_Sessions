@@ -11,14 +11,11 @@ const ACCELERATION = 100
 var input_vector = Vector2.ZERO
 var velocity = Vector2.ZERO
 var dead = false
-var score = 50
+var score = 0
 var health = 3
-
-onready var tween = $Tween
 
 
 func _ready():
-	print(self.get_indexed("modulate:a"))
 	Globals.player = self
 	randomize()
 	pick_random_color()
@@ -47,17 +44,9 @@ func _on_Area2D_body_entered(body):
 		score += 1
 		print(score)
 	else:
-		hit()
-
-func hit():
-	tween.interpolate_property(self, "modulate:a", 0, 1,
-	.4, Tween.TRANS_BOUNCE, Tween.EASE_IN_OUT)
-	tween.start()
-	
-	health -= 1
-	if health <= 0:
-		die()
-
+		health -= 1
+		if health <= 0:
+			die()
 
 
 func die():
