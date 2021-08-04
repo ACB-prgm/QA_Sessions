@@ -13,12 +13,12 @@ var velocity = Vector2.ZERO
 var dead = false
 var score = 50
 var health = 3
+var isGrounded = true
 
 onready var tween = $Tween
 
 
 func _ready():
-	print(self.get_indexed("modulate:a"))
 	Globals.player = self
 	randomize()
 	pick_random_color()
@@ -33,12 +33,18 @@ func movement():
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
 	
+	look_at(input_vector + global_position)
+	if rotation > PI/2 or rotation < -PI/2:
+		$Sprite.flip_v = true
+	else:
+		$Sprite.flip_v = false
+	
 	if input_vector != Vector2.ZERO:
 		velocity += input_vector * ACCELERATION
 		velocity = velocity.clamped(MAX_VEL)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, ACCELERATION)
-
+	
 	move_and_slide(velocity)
 
 

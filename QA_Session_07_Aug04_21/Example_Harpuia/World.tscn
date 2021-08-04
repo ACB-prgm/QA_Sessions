@@ -1,8 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://QA_Sessions/QA_Session_01_May04_21/Colors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://QA_Sessions/QA_Session_01_May04_21/SpawnArea/SpawnArea.tscn" type="PackedScene" id=2]
 [ext_resource path="res://QA_Sessions/QA_Session_01_May04_21/Colors/World.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 200, 800.708 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends CollisionShape2D
+
+
+onready var spawnArea = shape.extents
+onready var origin = global_position - spawnArea
+
+
+func gen_random_pos():
+	var x = rand_range(origin.x, spawnArea.x)
+	var y = rand_range(origin.y, spawnArea.y)
+	
+	return Vector2(x, y)
+"
 
 [node name="World" type="Node2D"]
 position = Vector2( 274.407, 445.309 )
@@ -16,7 +34,22 @@ scale = Vector2( 0.5, 0.5 )
 wait_time = 5.0
 autostart = true
 
-[node name="SpawnArea" parent="." instance=ExtResource( 2 )]
-position = Vector2( 688.85, -652.016 )
+[node name="SpawnAreas" type="Node2D" parent="."]
+
+[node name="SpawnArea" parent="SpawnAreas" instance=ExtResource( 2 )]
+position = Vector2( 688, -658 )
+
+[node name="SpawnArea2" parent="SpawnAreas" instance=ExtResource( 2 )]
+position = Vector2( -484, 92 )
+shape = SubResource( 1 )
+script = SubResource( 2 )
+
+[node name="SpawnArea3" parent="SpawnAreas" instance=ExtResource( 2 )]
+position = Vector2( 1846, 92 )
+shape = SubResource( 1 )
+script = SubResource( 2 )
+
+[node name="SpawnArea4" parent="SpawnAreas" instance=ExtResource( 2 )]
+position = Vector2( 688, 834 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

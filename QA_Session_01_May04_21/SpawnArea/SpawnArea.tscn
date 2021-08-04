@@ -7,7 +7,6 @@ extents = Vector2( 960, 200 )
 
 [node name="SpawnArea" type="CollisionShape2D"]
 modulate = Color( 0.662745, 0, 1, 1 )
-position = Vector2( 1876.85, -186.016 )
 shape = SubResource( 1 )
 disabled = true
 script = ExtResource( 1 )
