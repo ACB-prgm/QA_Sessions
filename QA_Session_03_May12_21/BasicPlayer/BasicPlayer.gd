@@ -11,6 +11,12 @@ var bullet_TSCN = preload("res://QA_Sessions/QA_Session_03_May12_21/BasicPlayer/
 var input_vector: Vector2
 var velocity: Vector2
 
+signal is_player(player)
+
+
+func _ready():
+	emit_signal("is_player", self)
+
 
 func _physics_process(_delta):
 	movement()

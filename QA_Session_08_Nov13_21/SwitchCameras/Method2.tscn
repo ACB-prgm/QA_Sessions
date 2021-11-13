@@ -1,0 +1,87 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://QA_Sessions/QA_Session_02_May08_21/Billiards/Ballz/9Y.png" type="Texture" id=1]
+[ext_resource path="res://QA_Sessions/QA_Session_02_May08_21/Billiards/Ballz/10B.png" type="Texture" id=2]
+[ext_resource path="res://QA_Sessions/QA_Session_07_Aug04_21/RichTextTest/FireAnims/f3.png" type="Texture" id=3]
+[ext_resource path="res://addons/ridiculous_coding/blip.png" type="Texture" id=4]
+[ext_resource path="res://QA_Sessions/QA_Session_03_May12_21/BasicPlayer/BasicPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://QA_Sessions/QA_Session_08_Nov13_21/SwitchCameras/Method2.gd" type="Script" id=6]
+[ext_resource path="res://QA_Sessions/QA_Session_08_Nov13_21/SwitchCameras/Position2D.gd" type="Script" id=7]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 4 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Method2" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="9Y" type="Sprite" parent="Node2D"]
+position = Vector2( 825.6, 225.401 )
+texture = ExtResource( 1 )
+
+[node name="10B" type="Sprite" parent="Node2D"]
+position = Vector2( 1533.6, 477.401 )
+texture = ExtResource( 2 )
+
+[node name="f3" type="Sprite" parent="Node2D"]
+position = Vector2( 999.6, 935.401 )
+texture = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D"]
+position = Vector2( 189, 191 )
+frames = SubResource( 9 )
+frame = 1
+playing = true
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 960, 540 )
+script = ExtResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="Position2D"]
+current = true
+smoothing_enabled = true
+
+[node name="Tween" type="Tween" parent="Position2D"]
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+scale = Vector2( 0.3, 0.3 )
+
+[connection signal="is_player" from="Player" to="Position2D" method="_on_Player_is_player"]
