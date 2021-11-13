@@ -1,7 +1,6 @@
 extends Position2D
 
 
-
 onready var tween = $Tween
 onready var camera = $Camera2D
 var player

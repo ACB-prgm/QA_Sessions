@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://QA_Sessions/QA_Session_08_Nov13_21/Checkpoints/Node2D.gd" type="Script" id=1]
+[ext_resource path="res://QA_Sessions/QA_Session_08_Nov13_21/Checkpoints/Checkpoint.tscn" type="PackedScene" id=2]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Checkpoints" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 2 )]
+position = Vector2( 160.427, 886.343 )
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 2 )]
+position = Vector2( 691.072, 119.05 )
+checkpoint = 2
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource( 2 )]
+position = Vector2( 1574.51, 764.389 )
+checkpoint = 1
+
+[connection signal="checkpoint_entered" from="Checkpoints/Checkpoint" to="." method="_on_checkpoint_entered"]
+[connection signal="checkpoint_entered" from="Checkpoints/Checkpoint2" to="." method="_on_checkpoint_entered"]
+[connection signal="checkpoint_entered" from="Checkpoints/Checkpoint3" to="." method="_on_checkpoint_entered"]

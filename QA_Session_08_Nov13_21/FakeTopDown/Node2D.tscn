@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://QA_Sessions/QA_Session_08_Nov13_21/FakeTopDown/TaskManager_THUMBNAIL.png" type="Texture" id=1]
+[ext_resource path="res://QA_Sessions/QA_Session_08_Nov13_21/FakeTopDown/KinematicBody2D.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 74.3406
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 1556, 637 )
+script = ExtResource( 2 )
+
+[node name="Ground" type="Sprite" parent="KinematicBody2D"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, 66.25 )
+scale = Vector2( 2, 0.679688 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+modulate = Color( 0.423529, 0.564706, 0.0823529, 1 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="GunSprite" type="Sprite" parent="KinematicBody2D"]
+modulate = Color( 0, 0, 0, 1 )
+scale = Vector2( 2, 0.5 )
+texture = ExtResource( 3 )
+offset = Vector2( 24, 0 )
+
+[node name="BarrelPosition2D" type="Position2D" parent="KinematicBody2D/GunSprite"]
+position = Vector2( 64.9695, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+visible = false
+shape = SubResource( 1 )
