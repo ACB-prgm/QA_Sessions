@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/debug_console/DebugConsole.gd" type="Script" id=1]
+
+[node name="DebugConsole" type="MarginContainer"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 158.0
+margin_top = 50.0
+margin_right = -158.0
+margin_bottom = -50.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CommandHandler" type="Node" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 708.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 708.0
+margin_bottom = 472.0
+size_flags_vertical = 3
+
+[node name="Output" type="TextEdit" parent="VBoxContainer/HBoxContainer"]
+margin_right = 708.0
+margin_bottom = 472.0
+focus_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/member_variable_color = Color( 1, 1, 1, 1 )
+custom_colors/function_color = Color( 1, 1, 1, 1 )
+custom_colors/symbol_color = Color( 1, 1, 1, 1 )
+custom_colors/number_color = Color( 1, 1, 1, 1 )
+text = "Debug Console
+Type '/help' for a list of commands."
+readonly = true
+syntax_highlighting = true
+wrap_enabled = true
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/HBoxContainer/Output"]
+anchor_left = 0.987
+anchor_right = 1.0
+margin_left = -12.0
+margin_bottom = 20.0
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InputField" type="LineEdit" parent="VBoxContainer"]
+margin_top = 476.0
+margin_right = 708.0
+margin_bottom = 500.0
+placeholder_text = "Command"
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Output/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="text_entered" from="VBoxContainer/InputField" to="." method="_on_InputField_text_entered"]

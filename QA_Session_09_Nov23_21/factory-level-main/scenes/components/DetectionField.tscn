@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="DetectionField" type="Area2D"]
+light_mask = 0
+collision_layer = 0
+collision_mask = 0
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+self_modulate = Color( 0.12549, 0.878431, 0.101961, 1 )
+light_mask = 0

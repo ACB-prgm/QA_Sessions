@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>DebugConsole - Class Documentation</title>
+        <style media="screen">
+            :root {
+                --bodybg: #E1EBF0;
+                --contentbg: #F7FDFF;
+                --monofont: "Liberation Mono", "Courier New", monospace;
+                --sansfont: FreeSans, Arial, sans-serif;
+            }
+            .brief {
+                margin-left: 1cm;
+            }
+            .class {
+                color: #E54B4E;
+            }
+            #flex-container {
+                display: flex;
+                flex-flow: row nowrap;
+                height: 100%;
+            }
+            #main-article {
+                flex: 4 1 300px;
+                height: 100%;
+                overflow-y: auto;
+                padding: 4px 1cm 4px 1cm;
+            }
+            #toc {
+                background-color: #9ABDE2;
+                flex: 1 4 100px;
+                height: 100%;
+                overflow-x: hidden;
+                padding: 4px;
+            }
+            #main {
+                background-color: var(--contentbg);
+                box-sizing: border-box;
+                height: 95%;
+                margin: 2px 20% 2px 20%;
+            }
+            abbr[title] {
+                border-bottom: 1px dotted;
+                text-decoration: none;
+            }
+            body, html {
+                height: 100%;
+            }
+            body {
+                background-color: var(--bodybg);
+                font-family: var(--sansfont);
+            }
+            code {
+                font-family: var(--monofont);
+            }
+            div {
+                margin-bottom: 30px;
+            }
+            div.note {
+                border-left-color: #FCE94F;
+                border-left-style: solid;
+                border-left-width: 5px;
+                margin-left: 1cm;
+                padding-left: 2px;
+            }
+            /*h1 {
+                font-size: 2em;
+            }*/
+            hr {
+                display: block;
+                border-style: inset;
+                border-width: 2px;
+                border-color: #BCBCBC;
+                overflow: hidden;
+            }
+            hr.faint-line {
+                border-color: #FDFDFD;
+                border-width: 1px;
+            }
+            p {
+                margin-bottom: 30px;
+            }
+            /* table */
+            table {
+                border-collapse: collapse;
+            }
+            th {
+                font-weight: bold;
+            }
+            td, th {
+                border: 1px solid #9FA695;
+                padding: 4px 8px 4px 8px;
+            }
+            span.complextype {
+                color: #386908;
+                font-family: var(--monofont);
+            }
+            span.podtype {
+                color: #C15252;
+                font-family: var(--monofont);
+            }
+            /* table class="bicolor_light" */
+            table.bicolor_light td:nth-child(2) {
+                font-family: var(--monofont);
+            }
+            table.bicolor_light tr:nth-child(even) {
+                background-color: #F7FDFF;
+                font-family: var(--monofont);
+            }
+            table.bicolor_light tr:nth-child(odd) {
+                background-color: #E9F0F2;
+                font-family: var(--monofont);
+            }
+            /* table class="bicolor" */
+            table.bicolor {
+                width: 100%;
+            }
+            table.bicolor td:nth-child(1), table.bicolor td:nth-child(3) {
+                font-family: var(--monofont);
+            }
+            table.bicolor tr {
+                font-family: var(--monofont);
+            }
+            table.bicolor tr:nth-child(even) {
+                background-color: #DCE6E8;
+            }
+            table.bicolor tr:nth-child(odd) {
+                background-color: #EDF9FA;
+            }
+        </style>
+        <script type="text/javascript">
+            /*function changeNote() {
+                const es = document.getElementsByClassName('note');
+                let flen = es.length;
+                for (let i = 0; i < flen; ++i) {
+                    let buf = es[i].innerHTML;
+                    es[i].innerHTML = "<b>Note</b>" + buf;
+                }
+            }*/
+            function addRefsToFunctionClass() {
+                const es = document.getElementsByClassName('function');
+                let flen = es.length;
+                for (let i = 0; i < flen; ++i) {
+                    let buf = es[i].innerHTML;
+                    es[i].innerHTML = "<a href=\"#method_" + buf.match(/[a-zA-Z_]*/) + "\">" + buf + "</a>";
+                }
+            }
+        </script>
+    </head>
+    <body > <!-- onload="addRefsToFunctionClass()" -->
+        <div id="main">
+            <div id="flex-container">
+                <nav id="toc">
+                    <h1 style="font-size: 2em">Table of Contents</h1>
+                    <ul>
+                        <li> <a href="#description">Description</a> </li>
+                        <li> <a href="#properties">Properties</a> </li>
+                        <li> <a href="#enumerations">Enumerations</a> </li>
+                        <li> <a href="#constants">Constants</a> </li>
+                        <li> <a href="#signals">Signals</a> </li>
+                        <li> <a href="#methods">Methods</a> </li>
+                    </ul>
+                </nav>
+                <section id="main-article">
+                    <header id="header">
+                        <h1 style="font-size: 2em">DebugConsole</h1>
+                        <p>Debug console</p>
+                        <p><p>Inherits from <code class="class">Control</code> </p></p>
+                    </header>
+                    <hr>
+                    <div id="description">
+                        <h2>Description</h2>
+                        <p>A debug console that you can use for general-purpose testing.</p><p>The recommended way to use this console is to put it under a <code class="class">CanvasLayer</code> node and hide it from the editor. Then make sure that whenever you want to show the console, <a href="#method_activate">activate</a>() is called. If done correctly, the console should look something like this: <img src="images/DebugConsole_img2.png"></img></p>
+                    </div>
+                    <div id="properties">
+                        <h2>Properties</h2>
+                        <table class="bicolor"><tr><th>Type</th><th>Name</th><th>Default</th></tr><tr><td>Script</td><td>command_script</td><td></td></tr>
+</table>
+<br>
+<p>&bullet; <b>Script command_script</b> &mdash; A script which provides a list of user-defined commands for the console to parse. </p>
+<!-- 0712dbc88aea45b576a04a621ac8a2f1 -->
+<p>There is a particular syntax when it comes to this script. First, there needs to be an array called <i>valid_commands</i>: it should be a constant, but using a mutable variable will not produce an error. Second, there must be a variable named <i>remote_nodes</i>, and unlike the previous must be editable. Third, there should be a variable called <i>parent_node</i>: it shall accept a reference to this console node. To avoid errors with types, you should make the variable <span class="podtype">Variant</span> or <code class="class">Node</code>. Lastly, the script must extend from <code class="class">Node</code>.</p><p>The <i>valid_commands</i> array has a particular structure that must be respected. Each element is a nested array with three elements: <code>[ <span class="podtype">String</span> command, [?<span class="podtype">int</span> param1 ... <span class="podtype">int</span> paramN?], [?<span class="podtype">String</span> param1 ... <span class="podtype">String</span> paramN?]</code><br> The first element is the name of a function which shall exist in the same script. Next is a list of integers that denote parameter types: use a constant of <code class="enum"><span class="podtype">Variant</span></code>.Type or -1 to make it a <span class="podtype">Variant</span>. Finally, the third element is a list of parameter names which correspond to the second element.</p><p>When a command is evaluated, a function of the same name is called with the parameters pulled from the input box. Parameters are interpreted as strings by default unless they take forms that are valid for other types, in which case they are converted to the appropriate type. See below for a list of supported types and what kind of strings are converted. The function is expected to return a <span class="podtype">String</span>, event an empty one, as that return value is the output of the command printed to the console.</p><p>Imagine you have a function that takes an <span class="podtype">int</span> called <code class="function">test</code>. The command of the same same name will be called with the first parameter interpreted as an integer. Should the conversion fail, an error is produced.</p><p>To see what types there are, type "/types" in the console window.</p>
+                    </div>
+<!-- dbb2de43bcb6db6ff4f7c60dc0e51aa3 -->
+<!-- 4b245a71c688bce9fbb8bf9225b5f7b4 -->
+<!-- fd3943bb1502d0570e63e2e474747700 -->
+                    <div id="methods">
+                        <h2>Methods</h2>
+                        <div id="method_activate">
+    <p>&bullet; <span class="podtype">Variant</span> <b>activate</b>()</p>
+    <p class="brief">Activates the debug console.</p><p>Call this once to activate the console. Pauses the scene tree and grabs focus.</p>
+</div>
+<div id="method_deactivate">
+    <p>&bullet; <span class="podtype">Variant</span> <b>deactivate</b>()</p>
+    <p class="brief">Deactivates the debug console.</p><p>Call this function to hide the debug console and to unpause the scene tree.</p>
+</div>
+<div id="method_output_text">
+    <p>&bullet; <span class="podtype">void</span> <b>output_text</b>(<span class="podtype">String</span> text)</p>
+    <p class="brief">Output text to the console.</p><p>Writes the string <i class="argument">text</i> to the console text window. If a text begins with an at-sign it is interpreted as a message to be specially formatted.</p><p>@argcount:X:Y -- Generates an error message about the number of arguments. <i>X</i> is the number of arguments expected, and <i>Y</i> is the the number of arguments received.</p><p>@arrayneed:P:C -- Generates an error message about the array <i>P</i> does not have enough data. (It expects <i>C</i> elements.)</p><p>@error:MSG -- Generates an error message. <i>MSG</i> is the message to display.</p>
+</div>
+<div id="method_process_command">
+    <p>&bullet; <span class="podtype">void</span> <b>process_command</b>(<span class="podtype">String</span> text)</p>
+    <p class="brief">Processes a command.</p><p>Processes the command string <i class="argument">text</i>. If the string begins with a '/', it is treated as a builtin command. An error is emitted if the command does not exist in the database as it's configured.</p><p>Builtin Commands:</p><p>/help -- Display a list of supported commands<br> /types -- Displays all the supported data types<br> /print ARG -- Prints the <i class="argument">ARG</i>, interpreting as one of the supported data types<br> /exit -- Deactivates the console</p>
+</div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

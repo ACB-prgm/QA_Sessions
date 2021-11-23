@@ -20,7 +20,6 @@ func follow():
 	if points:
 		var point = points[0]
 		if global_position.distance_to(leader.global_position) > 200:
-			print("moving")
 			global_position = point
 			points.remove(0)
 #		elif global_position.distance_to(leader.global_position) <= 200:

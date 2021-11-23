@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/actors/EnergyBall.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/actors/energy_ball.png" type="Texture" id=2]
+[ext_resource path="res://scenes/components/DetectionField.tscn" type="PackedScene" id=3]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 0.94
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 12.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 12, 12 )
+
+[node name="EnergyBall" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 3
+mode = 2
+mass = 7.5
+physics_material_override = SubResource( 2 )
+linear_damp = 0.5
+script = ExtResource( 1 )
+throw_force = 1395.0
+upward_force = 1010.0
+
+[node name="Frames" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="DetectionField" parent="." instance=ExtResource( 3 )]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="DetectionField" index="0"]
+shape = SubResource( 3 )
+
+[editable path="DetectionField"]

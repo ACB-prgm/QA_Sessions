@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/actors/enemies/GuardRobot.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/actors/robot.png" type="Texture" id=2]
+[ext_resource path="res://addons/behavior_tree/src/blackboard.gd" type="Script" id=3]
+[ext_resource path="res://scripts/classes/resources/Stats.gd" type="Script" id=5]
+
+[sub_resource type="Resource" id=1]
+resource_local_to_scene = true
+script = ExtResource( 5 )
+max_health = 1
+max_mana = 0
+attack = 1
+defense = 0
+owner_name = "Guard Robot"
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 7.0
+height = 9.0
+
+[node name="GuardRobot" type="KinematicBody2D"]
+self_modulate = Color( 0.301961, 0.909804, 0.196078, 1 )
+light_mask = 0
+collision_layer = 16
+collision_mask = 3
+script = ExtResource( 1 )
+__meta__ = {
+"collision_layer": 16,
+"collision_mask": 3
+}
+armor_time = 1.0
+stats = SubResource( 1 )
+speed_cap = Vector2( 75, 0 )
+disabled = null
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+self_modulate = Color( 0.0470588, 0.443137, 1, 1 )
+position = Vector2( 0, 4.5 )
+shape = SubResource( 2 )
+
+[node name="Blackboard" type="Node" parent="."]
+script = ExtResource( 3 )
+data = {
+"charge_speed": 0.0,
+"detection_size": 0.0,
+"initial_position": Vector2( 0, 0 ),
+"player": null,
+"state": 0,
+"travel": 0.0
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Tween" type="Tween" parent="."]

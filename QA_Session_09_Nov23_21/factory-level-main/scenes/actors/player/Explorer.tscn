@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/actors/player/Normal.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/actors/player.png" type="Texture" id=2]
+[ext_resource path="res://scripts/classes/nodes/StateMachine.gd" type="Script" id=3]
+[ext_resource path="res://scenes/actors/player/Climb.gd" type="Script" id=4]
+[ext_resource path="res://scenes/actors/player/Explorer.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.0
+height = 9.0
+
+[node name="Explorer" type="KinematicBody2D" groups=["player"]]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource( 5 )
+__meta__ = {
+"collision_layer": 4,
+"collision_mask": 11
+}
+speed_cap = Vector2( 75, 300 )
+disabled = null
+
+[node name="Frames" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+self_modulate = Color( 0.0509804, 0.329412, 0.992157, 1 )
+position = Vector2( 0, 4.5 )
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.75, 0.75 )
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 500
+editor_draw_limits = true
+
+[node name="States" type="Node" parent="."]
+script = ExtResource( 3 )
+root_node = NodePath("..")
+paused = false
+
+[node name="Normal" type="Node" parent="States"]
+script = ExtResource( 1 )
+
+[node name="Climb" type="Node" parent="States"]
+script = ExtResource( 4 )
+ladder_climb_speed = 50.0
