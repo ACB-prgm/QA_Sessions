@@ -1,26 +1,30 @@
 extends KinematicBody2D
 
+const MAX_FOLLOW_DISTANCE = 800
+const MIN_FOLLOW_DISTANCE = 200
+const MAX_VEL = 1000
+const ACCELERATION = 50
 
-var leader
+var velocity = Vector2.ZERO
+
+onready var leader_path = get_parent()
+onready var tween = $Tween
 
 
 func _ready():
-	leader = get_parent()
-	
-	leader.call_deferred("remove_child", self)
-	get_tree().root.call_deferred("add_child" ,self)
+	yield(Globals, "global_player_set")
+	global_position = Vector2(int(global_position.x), int(global_position.y))
+	for x in range(global_position.x, int(Globals.player.global_position.x)):
+		Globals.player.points.append(x)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	follow()
 
 
 func follow():
-	var points = leader.curve.get_baked_points()
-	if points:
-		var point = points[0]
-		if global_position.distance_to(leader.global_position) > 200:
-			global_position = point
-			points.remove(0)
-#		elif global_position.distance_to(leader.global_position) <= 200:
-#			leader.points.clear()
+#	global_position = Globals.player.points[0]
+	if Globals.player.points:
+		tween.interpolate_property(self, "global_position", global_position, Globals.player.points[0], 
+		.5, Tween.TRANS_SINE, Tween.EASE_OUT)
+		tween.start()

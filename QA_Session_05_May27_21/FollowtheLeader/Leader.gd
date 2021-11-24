@@ -1,25 +1,26 @@
 extends KinematicBody2D
 
 
+const FOLLOW_DISTANCE = 200
+const MAX_POINTS = 50
+const MIN_POINTS = 20
 const MAX_VEL = 1000
 const ACCELERATION = 100
-const MAX_curve = 60
+
+export var bake_interval = 60
 
 var input_vector = Vector2.ZERO
 var velocity = Vector2.ZERO
-onready var start_pos = global_position
-onready var curve = $Path2D.curve
-onready var line = $Line2D
+var last_point = Vector2.ZERO
+
+onready var points = []
 
 
 func _ready():
-	
 	Globals.player = self
 
 
 func _physics_process(_delta):
-	line.global_position = start_pos
-	line.points = curve.get_baked_points()
 	movement()
 
 
@@ -31,16 +32,21 @@ func movement():
 	if input_vector != Vector2.ZERO:
 		velocity += input_vector * ACCELERATION
 		velocity = velocity.clamped(MAX_VEL)
-		create_curve()
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, ACCELERATION)
-
 # warning-ignore:return_value_discarded
+	
+	adjust_path(velocity)
 	move_and_slide(velocity)
 
-func create_curve():
-#	prints(curve.get_baked_points().size(), curve.get_point_count())
-	curve.add_point(global_position)
-	
-	if curve.get_point_count() > MAX_curve:
-		curve.remove_point(0)
+func adjust_path(vel):
+	var num_points = points.size()
+	if vel != Vector2.ZERO:
+		last_point = global_position
+		points.append(last_point)
+		if num_points > MAX_POINTS:
+			points.remove(0)
+	elif num_points > MIN_POINTS:
+		points.remove(0)
+
+

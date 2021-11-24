@@ -8,7 +8,13 @@ extends Node
 
 var mouse_pos: Vector2
 
-var player = null
+signal global_player_set
+
+var player = null setget set_global_player
 
 func _print(arg):
 	print(arg)
+
+func set_global_player(new_player):
+	player = new_player
+	emit_signal("global_player_set")
